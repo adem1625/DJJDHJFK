@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stage 2: The Sorcerer’s Trick</title>
+  <!-- Google Fonts for a classical, Arabian feel -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Animated gradient background with violet and blue hues (same as Stage 5) */
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cinzel', serif;
+      background: linear-gradient(45deg, #4B0082, #00008B, #8A2BE2, #1E90FF);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+      color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+      overflow-y: auto;
+    }
+    
+    /* Container styling with a golden, ornate feel and fadeIn animation */
+    .container {
+      background: rgba(0, 0, 50, 0.6);
+      padding: 40px 50px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      max-width: 600px;
+      width: 90%;
+      border: 2px solid #d4af37; /* gold border */
+      animation: fadeInUp 1s ease-out forwards;
+      opacity: 0;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2em;
+      color: #ffd700;
+      text-align: center;
+    }
+    
+    p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      color: #f5f5f5;
+      text-align: center;
+    }
+    
+    form {
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 1em;
+      border: 2px solid #b8860b;
+      border-radius: 5px;
+      transition: border 0.3s;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+    }
+    
+    input[type="text"]:focus {
+      border-color: #ffd700;
+      outline: none;
+    }
+    
+    button {
+      padding: 12px 20px;
+      font-size: 1em;
+      background-color: #b8860b;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+      margin-top: 10px;
+    }
+    
+    button:hover {
+      background-color: #d4af37;
+      transform: scale(1.05);
+    }
+    
+    /* Response message styling */
+    #responseMessage {
+      margin-top: 20px;
+      font-size: 1.2em;
+      text-align: center;
+    }
+    
+    .error {
+      background-color: rgba(255, 0, 0, 0.6);
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    .success {
+      background-color: rgba(0, 128, 0, 0.6);
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    a {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Stage 2: The Sorcerer’s Trick</h1>
+    <p>Enter the decoded message from the cipher below:</p>
+    
+    <form id="answerForm">
+      <input type="text" id="userAnswer" placeholder="Type your answer here">
+      <button type="submit">Submit Answer</button>
+    </form>
+    
+    <div id="responseMessage"></div>
+  </div>
+  
+  <script>
+    // Expected answer (exact match, case-insensitive)
+    const expectedAnswer = "I am the trickster behind hidden words, and I guard the path to your next clue. Use the key of three to shift your mind and reveal the secret message.";
+    
+    document.getElementById("answerForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Prevent default form submission
+      
+      const userAnswer = document.getElementById("userAnswer").value.trim();
+      
+      if (userAnswer.toLowerCase() === expectedAnswer.toLowerCase()) {
+        document.getElementById("responseMessage").innerHTML = '<div class="success">Correct! <a href="https://qrco.de/bfnEaA" target="_blank">Click here to continue to Stage 3.</a></div>';
+      } else {
+        document.getElementById("responseMessage").innerHTML = '<div class="error">Incorrect answer. Please try again.</div>';
+      }
+    });
+  </script>
+</body>
+</html>
