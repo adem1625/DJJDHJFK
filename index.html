@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Stage 2: The Sorcerer’s Trick</title>
-  <!-- Google Fonts for a classical, Arabian feel -->
+  <title>The Sorcerer’s Revenge </title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Animated gradient background with violet and blue hues (same as Stage 5) */
+    /* 3 */
+    /* Consistent gradient animation */
     @keyframes gradientAnimation {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-    
+
     body {
       margin: 0;
       padding: 0;
@@ -21,146 +21,144 @@
       background-size: 400% 400%;
       animation: gradientAnimation 15s ease infinite;
       color: #f5f5f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       min-height: 100vh;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
       overflow-y: auto;
     }
-    
-    /* Container styling with a golden, ornate feel and fadeIn animation */
+
+    /* Container styling */
     .container {
-      background: rgba(0, 0, 50, 0.6);
+      background: rgba(0, 0, 50, 0.85);
       padding: 40px 50px;
       border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.8);
       max-width: 600px;
       width: 90%;
-      border: 2px solid #d4af37; /* gold border */
+      border: 2px solid #ffd700;
+      margin: 40px auto;
       animation: fadeInUp 1s ease-out forwards;
       opacity: 0;
     }
-    
+
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    
+
     h1 {
+      font-size: 2.4em;
       margin-bottom: 20px;
-      font-size: 2em;
       color: #ffd700;
-      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
-    
-    p {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-      color: #f5f5f5;
-      text-align: center;
+
+    .sand-text {
+      font-size: 1.4em;
+      padding: 25px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 2px solid #b8860b;
+      border-radius: 8px;
+      margin: 30px 0;
+      line-height: 1.6;
+      font-family: monospace;
+      transform: rotateY(180deg);
+      letter-spacing: 3px;
     }
-    
-    form {
-      margin-top: 20px;
-      text-align: center;
-    }
-    
+
     input[type="text"] {
       width: 100%;
-      padding: 12px;
-      font-size: 1em;
-      border: 2px solid #b8860b;
+      padding: 15px;
+      margin: 20px 0;
+      font-size: 1.2em;
+      border: 2px solid #ffd700;
       border-radius: 5px;
-      transition: border 0.3s;
       background: rgba(255, 255, 255, 0.9);
       color: #333;
+      text-align: center;
     }
-    
-    input[type="text"]:focus {
-      border-color: #ffd700;
-      outline: none;
-    }
-    
+
     button {
-      padding: 12px 20px;
-      font-size: 1em;
-      background-color: #b8860b;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background-color: #9370DB;
       color: #fff;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      transition: background-color 0.3s, transform 0.3s;
-      margin-top: 10px;
+      transition: all 0.3s ease;
+      width: 100%;
     }
-    
+
     button:hover {
-      background-color: #d4af37;
+      background-color: #8A2BE2;
       transform: scale(1.05);
     }
-    
-    /* Response message styling */
-    #responseMessage {
-      margin-top: 20px;
-      font-size: 1.2em;
+
+    /* Genie animation from previous stages */
+    #genieReveal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
       text-align: center;
+      animation: genieAppear 1.5s ease-out forwards;
     }
-    
-    .error {
-      background-color: rgba(255, 0, 0, 0.6);
-      padding: 10px;
-      border-radius: 5px;
+
+    @keyframes genieAppear {
+      from { opacity: 0; transform: translate(-50%, -40%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
     }
-    
-    .success {
-      background-color: rgba(0, 128, 0, 0.6);
-      padding: 10px;
-      border-radius: 5px;
-    }
-    
-    a {
-      color: #ffd700;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    
-    a:hover {
-      text-decoration: underline;
+
+    #genieMessage {
+      margin-top: 20px;
+      font-size: 1.4em;
+      background: rgba(0, 0, 50, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #ffd700;
+      box-shadow: 0 0 20px rgba(255,215,0,0.5);
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Stage 2: The Sorcerer’s Trick</h1>
-    <p>Enter the decoded message from the cipher below:</p>
+    <h1>Stage 6: The Cave of Echoes</h1>
+    <div class="sand-text">
+      ⅃∀˥⊥∀Ɔ ƎH⊥ ꓤO ˥IϱH⊥ S∩∀ꟽS S∀HꟽƎ⅃O˥ ƆI⅃O˥
+    </div>
     
-    <form id="answerForm">
-      <input type="text" id="userAnswer" placeholder="Type your answer here">
-      <button type="submit">Submit Answer</button>
+    <form id="phraseForm">
+      <input type="text" id="mysticPhrase" placeholder="Speak the reversed truth...">
+      <button type="submit">Break the Sand Spell</button>
     </form>
-    
-    <div id="responseMessage"></div>
   </div>
-  
+
+  <!-- Genie Animation -->
+  <div id="genieReveal">
+    <img src="./gen.png" alt="Magic Genie" style="width: 300px;">
+    <div id="genieMessage">
+      <p>By the Sands of Time!</p>
+      <p>The reversed truth is revealed:<br>
+      <strong>Magic Lamp Lights Beyond Sultan's Palace</strong></p>
+      <p>The final path is unlocked!</p>
+    </div>
+  </div>
+
   <script>
-    // Expected answer (exact match, case-insensitive)
-    const expectedAnswer = "I am the trickster behind hidden words, and I guard the path to your next clue. Use the key of three to shift your mind and reveal the secret message.";
-    
-    document.getElementById("answerForm").addEventListener("submit", function(e) {
-      e.preventDefault(); // Prevent default form submission
-      
-      const userAnswer = document.getElementById("userAnswer").value.trim();
-      
-      if (userAnswer.toLowerCase() === expectedAnswer.toLowerCase()) {
-        document.getElementById("responseMessage").innerHTML = '<div class="success">Correct! <a href="https://adem1625.github.io/treasure-hunt-3.0/" target="_blank">Click here to continue to Stage 3.</a></div>';
+    // Base64 encoded answer: TWFnaWMgTGFtcCBMaWdodHMgQmV5b25kIFN1bHRhbidzIFBhbGFjZQ==
+    const truePhrase = atob("TWFnaWMgTGFtcCBMaWdodHMgQmV5b25kIFN1bHRhbidzIFBhbGFjZQ==");
+
+    document.getElementById("phraseForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const userAnswer = document.getElementById("mysticPhrase").value.trim();
+      const genieDiv = document.getElementById("genieReveal");
+
+      if(userAnswer.toLowerCase() === truePhrase.toLowerCase()) {
+        genieDiv.style.display = "block";
       } else {
-        document.getElementById("responseMessage").innerHTML = '<div class="error">Incorrect answer. Please try again.</div>';
+        genieDiv.style.display = "none";
+        alert("The cave rumbles... Wrong incantation!");
       }
     });
   </script>
