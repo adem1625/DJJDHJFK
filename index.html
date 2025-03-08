@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>The Sorcerer’s Revenge </title>
+  <title>The Sorcerer’s Revenge</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
   <style>
     @keyframes gradientAnimation {
@@ -59,8 +59,23 @@
       margin: 30px 0;
       line-height: 1.6;
       font-family: monospace;
-      transform: rotateY(180deg);
       letter-spacing: 3px;
+      text-align: center;
+    }
+
+    /* Only flip the text if needed */
+    .sand-text p {
+      transform: rotateY(180deg);
+      display: inline-block;
+    }
+
+    .image-container {
+      text-align: center;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
     }
 
     input[type="text"] {
@@ -141,22 +156,18 @@
       70% { box-shadow: 0 0 0 15px rgba(255,215,0,0); }
       100% { box-shadow: 0 0 0 0 rgba(255,215,0,0); }
     }
-
-    .congrats-text {
-      color: #FFD700;
-      font-size: 1.8em;
-      margin: 15px 0;
-      text-shadow: 0 0 10px rgba(255,215,0,0.8);
-    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>The Sorcerer’s Revenge </h1>
+    <h1>The Sorcerer’s Revenge</h1>
     <div class="sand-text">
-      ǝɔɐlɐԀ s'uɐʇlnꙄ dnoʎǝꓭ sʇɥƃᴉꓶ dɯɐꓶ ɔᴉƃɐɯ
+      <div class="image-container">
+        <img src="./phrase.png" alt="question">
+      </div>
+      <!-- Optional text if you wish to display something reversed -->
+      <p>???</p>
     </div>
-    
     <form id="phraseForm">
       <input type="text" id="mysticPhrase" placeholder="Speak the reversed truth...">
       <button type="submit">Break the Sand Spell</button>
@@ -170,12 +181,14 @@
       <p>By the Sands of Time!</p>
       <p>The reversed truth is revealed:<br>
       <strong>Magic Lamp Lights Beyond Sultan's Palace</strong></p>
-      <p>The final path is unlocked!</p>
-      <a href="https://adem1625.github.io/treasure-hunt-3.0/" class="success-link">Proceed to the Oasis of Destiny →</a>
+      <p>The next path is unlocked!</p>
+      <a href="#next" class="success-link">Proceed to the Oasis of Destiny →</a>
     </div>
   </div>
 
   <script>
+    // The true phrase is stored as a Base64 encoded string.
+    // Decoded, it reads: Magic Lamp Lights Beyond Sultan's Palace
     const truePhrase = atob("TWFnaWMgTGFtcCBMaWdodHMgQmV5b25kIFN1bHRhbidzIFBhbGFjZQ==");
 
     document.getElementById("phraseForm").addEventListener("submit", function(e) {
